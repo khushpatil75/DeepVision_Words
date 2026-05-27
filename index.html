@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepVision AI - HTR Sequence Recognition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <h1>DeepVision AI</h1>
+            <p>End-to-End Devanagari Sequence Recognition</p>
+        </div>
+    </header>
+
+    <div class="layout-wrapper">
+        <!-- Main Upload & Prediction Area -->
+        <main class="container">
+            <div class="drop-zone" id="dropZone">
+                <div class="drop-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary); margin-bottom: 10px;">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                </div>
+                <p>Drag and drop your handwritten image here</p>
+                <span class="browse-btn">Browse Files</span>
+                <input type="file" id="fileInput" accept="image/png, image/jpeg, image/jpg">
+            </div>
+
+            <div class="preview-section" id="previewSection">
+                <img id="imagePreview" alt="Uploaded Image Preview">
+                <div class="file-name" id="fileName"></div>
+            </div>
+
+            <div class="action-section">
+                <button id="predictBtn" disabled>
+                    <span>Upload & Predict Sequence</span>
+                </button>
+            </div>
+
+            <div class="result-box" id="resultBox">
+                <div class="result-title">Model Prediction Output</div>
+                <div class="prediction-text" id="predictionText"></div>
+                <div class="tech-note">Automated Handwriting Digitization Output</div>
+            </div>
+        </main>
+
+        <!-- Informational Sidebar to fill blank space without theoretical jargon -->
+        <aside class="sidebar">
+            <div class="info-card">
+                <h3>Project Highlights</h3>
+                <ul class="feature-list">
+                    <li>
+                        <strong>End-to-End Recognition</strong>
+                        <span>Reads whole handwritten words as continuous sequences without requiring manual character slicing.</span>
+                    </li>
+                    <li>
+                        <strong>Robust Processing</strong>
+                        <span>Designed to handle variations in human handwriting, including continuous top-lines (Shirorekha) and modifiers.</span>
+                    </li>
+                    <li>
+                        <strong>Real-Time Inference</strong>
+                        <span>Processes images quickly via a lightweight, asynchronous backend architecture.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="info-card tip-card">
+                <h3>💡 Upload Guidelines</h3>
+                <p>For the best extraction accuracy, ensure your handwritten Devanagari words are:</p>
+                <ul class="bullet-list">
+                    <li>Written clearly on a plain, unlined background</li>
+                    <li>Well-lit with high contrast (e.g., dark ink on white paper)</li>
+                    <li>Cropped specifically to the individual word level</li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <p>Pattern Recognition Minor Project</p>
+        <div class="student-info">
+            <span>B.Tech Engineering</span> | 
+            <span>Computer Vision & Deep Learning</span>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
