@@ -1,0 +1,148 @@
+# ============================================================
+# DeepVision AI — Handwritten Devanagari Word Recognition
+# .gitignore
+# ============================================================
+
+# --- Python Cache ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*$py.class
+
+# --- Virtual Environments ---
+venv/
+.venv/
+env/
+.env/
+ENV/
+env.bak/
+venv.bak/
+
+# --- Environment Variables & Secrets ---
+.env
+.env.*
+*.env
+secrets.py
+
+# --- Jupyter Notebook Checkpoints ---
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+# --- Training Checkpoints (intermediate, not the final deployed model) ---
+# The final trained model (hybrid_ctc_model.pth) and vocabulary
+# (ctc_vocab.json) are REQUIRED to run the project and are tracked.
+# Only intermediate/emergency checkpoints generated during training
+# are excluded here.
+hybrid_ctc_model_checkpoint.pth
+interrupted_checkpoint.pth
+error_checkpoint.pth
+
+# --- Generated Training Outputs (can be reproduced by re-running notebooks) ---
+loss_convergence_graph.png
+
+# --- Logs ---
+*.log
+logs/
+
+# --- OS-specific Files ---
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+
+# --- IDE and Editor Files ---
+# VS Code
+.vscode/
+*.code-workspace
+
+# PyCharm / IntelliJ
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim / Neovim
+*.swp
+*.swo
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# --- Compiled / Distribution / Build ---
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-link
+.installed.cfg
+MANIFEST
+
+# --- Coverage & Testing ---
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+pytestdebug.log
+
+# --- Type Checking ---
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+
+# --- Temporary Files ---
+*.tmp
+*.temp
+tmp/
+temp/
+
+# ============================================================
+# NOT IGNORED (intentionally tracked in this repository):
+#
+#   hybrid_ctc_model.pth   — trained model weights, required to run
+#   ctc_vocab.json         — character vocabulary, required to run
+#   Testing_Images/        — sample images for demonstration
+#   index.html             — web UI
+#   style.css              — web UI styling
+#   script.js              — web UI logic
+#   main.py                — FastAPI backend
+#   TrainingScript_0.ipynb — training experiment notebook
+#   TrainingScript_1.ipynb — final training notebook
+#   Testing.ipynb          — evaluation notebook
+# ============================================================
+
