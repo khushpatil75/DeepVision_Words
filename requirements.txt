@@ -1,0 +1,41 @@
+# DeepVision AI — Handwritten Devanagari Word Recognition
+# Requirements File
+#
+# Install all backend/ML dependencies with:
+#   pip install -r requirements.txt
+#
+# For GPU support (CUDA 11.8), replace the torch/torchvision lines with:
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
+#
+# For CPU-only (slower inference):
+#   pip install torch torchvision
+#
+# Tested on Python 3.10
+
+# --- Deep Learning Framework ---
+torch>=2.0.0
+torchvision>=0.15.0
+
+# --- CNN Backbone ---
+timm>=0.9.0
+
+# --- FastAPI Backend ---
+fastapi>=0.100.0
+uvicorn[standard]>=0.22.0
+
+# --- Data Validation (FastAPI dependency) ---
+pydantic>=2.0.0
+
+# --- Image Processing ---
+Pillow>=9.0.0
+
+# --- Dataset Loading (HuggingFace) ---
+datasets>=2.0.0
+
+# --- Training Utilities ---
+numpy>=1.24.0
+matplotlib>=3.7.0
+
+# --- Evaluation Metrics ---
+editdistance>=0.6.0
+

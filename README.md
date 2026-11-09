@@ -111,6 +111,8 @@ Words_final/
 ├── main.py                    # FastAPI server — loads model, defines /predict_sentence endpoint
 ├── hybrid_ctc_model.pth       # Trained model weights (~27 MB)
 ├── ctc_vocab.json             # Index-to-character mapping for the CTC decoder (109 classes)
+├── requirements.txt           # Python dependency requirements
+├── .gitignore                 # Git ignore rules for cache, venv, and checkpoints
 │
 ├── index.html                 # Web UI — drag-and-drop upload interface
 ├── style.css                  # UI styling — layout, animations, responsive design
@@ -119,6 +121,12 @@ Words_final/
 ├── TrainingScript_0.ipynb     # Initial training experiment (vocabulary building + first training run)
 ├── TrainingScript_1.ipynb     # Final training script with checkpointing, early stopping, loss plotting
 ├── Testing.ipynb              # Evaluation notebook — CER, WER, Word Accuracy on test split
+│
+├── screenshots/               # Application UI and evaluation screenshots
+│   ├── upload_ui.png          # Web interface upload area
+│   ├── prediction_result.png  # Successful prediction output
+│   ├── Failed.png             # Failed / misclassified sample output
+│   └── loss_convergence_graph.png # Loss convergence over epochs
 │
 └── Testing_Images/            # Sample handwritten word images for manual testing
     ├── *.jpg / *.png          # Real handwriting samples used during development
@@ -323,14 +331,16 @@ source venv/bin/activate
 ### Step 3: Install dependencies
 
 ```bash
-pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
-pip install fastapi uvicorn timm pillow datasets editdistance pydantic numpy matplotlib
+pip install -r requirements.txt
 ```
 
-> **Note:** If you don't have a GPU, install the CPU-only version of PyTorch:
+> **GPU users (CUDA 11.8):** Install PyTorch with GPU support first, then install the rest:
 > ```bash
-> pip install torch torchvision
+> pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
+> pip install -r requirements.txt
 > ```
+
+> **CPU-only users:** The default `requirements.txt` installs the CPU version of PyTorch automatically — no extra steps needed.
 
 ---
 
@@ -393,17 +403,19 @@ Testing_Images/
 
 ## Screenshots
 
-> *Screenshots of the running application can be added here.*
-
 **1. Web Interface — Upload Area**
 
 ![Upload Interface](screenshots/upload_ui.png)
 
-**2. Prediction Result**
+**2. Successful Prediction Result**
 
 ![Prediction Result](screenshots/prediction_result.png)
 
-**3. Loss Convergence Graph (from Training)**
+**3. Failed / Misclassified Prediction**
+
+![Failed Prediction](screenshots/Failed.png)
+
+**4. Training Loss Convergence Graph**
 
 ![Loss Graph](screenshots/loss_convergence_graph.png)
 
@@ -491,7 +503,7 @@ The model was evaluated on the official **test split** (12,869 words) of the III
 - [ ] **Data augmentation:** Add random rotations, perspective transforms, elastic distortions, and brightness jitter during training for better generalisation.
 - [ ] **Deeper backbone:** Replace ResNet-18 with ResNet-34/50 or a Vision Transformer (ViT) for stronger feature extraction.
 - [ ] **Attention-based decoder:** Replace CTC with a sequence-to-sequence model with cross-attention, which can better model long-range character dependencies.
-- [ ] **Requirements file:** Add a `requirements.txt` for reproducible environment setup.
+- [ ] **Batch inference:** Add batch prediction support to the API for bulk image processing.
 - [ ] **Containerisation:** Wrap the backend in a Docker container for easy deployment.
 - [ ] **Model quantisation:** Apply INT8 quantisation to `hybrid_ctc_model.pth` to reduce model size and improve CPU inference speed.
 
@@ -501,7 +513,8 @@ The model was evaluated on the official **test split** (12,869 words) of the III
 
 | Name | Role |
 |---|---|
-| Khush | Model architecture, training pipeline, FastAPI backend, web UI |
+| **Khush** | Model architecture, training pipeline, and core system design |
+| **Dhruvi Nanotkar** | Web UI, testing, and FastAPI backend |
 
 ---
 
