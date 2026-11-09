@@ -509,7 +509,7 @@ The model was evaluated on the official **test split** (12,869 words) of the III
 
 | Name | Role |
 |---|---|
-| **Khush** | Model architecture, training pipeline, and core system design |
+| **Khush Patil** | Model architecture, training pipeline |
 | **Dhruvi Nanotkar** | Web UI, testing, and FastAPI backend |
 
 ---
