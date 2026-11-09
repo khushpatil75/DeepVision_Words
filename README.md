@@ -415,10 +415,6 @@ Testing_Images/
 
 ![Failed Prediction](screenshots/Failed.png)
 
-**4. Training Loss Convergence Graph**
-
-![Loss Graph](screenshots/loss_convergence_graph.png)
-
 ---
 
 ## Model Training and Prediction Workflow
